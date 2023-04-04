@@ -1,7 +1,9 @@
 import React from 'react';
 
 const CartComponent = ({ cartProducts }) => {
-  return <h2 data-testid="empty-text">The cart is empty!</h2>;
+  if (!cartProducts.length) {
+    return <h2 data-testid="empty-text">The cart is empty!</h2>;
+  }
 
   return (
     <div data-testid="cart-container">
@@ -15,12 +17,23 @@ const CartComponent = ({ cartProducts }) => {
           </tr>
         </thead>
         <tbody data-testid="cart-body">
-          {/* map thorugh tht cart items and display in rows */}
+          {cartProducts.map((elem, idx) => {
+            return (
+              <tr key={idx}>
+                <td>{idx + 1}</td>
+                <td>{elem.name}</td>
+                <td>{elem.price}</td>
+                <td>{elem.qty}</td>
+              </tr>
+            );
+          })}
           <tr>
             <td>{}</td>
             <td>{}</td>
             <td>Total</td>
-            <td data-testid="total-price"></td>
+            <td data-testid="total-price">
+              {cartProducts.reduce((acc, cur) => acc + +cur.price * cur.qty, 0).toFixed(2)}
+            </td>
           </tr>
         </tbody>
       </table>
