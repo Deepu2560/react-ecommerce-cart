@@ -12,14 +12,22 @@ const Products = () => {
     if (!ispresent) {
       setCart((prev) => [...prev, { ...item, qty: 1 }]);
     } else {
-      let incqty = cart.filter((elem) => {
+      let cartFilter = cart.filter((elem) => {
         if (elem.id === item.id) {
           elem.qty++;
         }
         return elem;
       });
-      setCart(() => incqty);
+      setCart(() => cartFilter);
     }
+
+    let prodFilter = products.filter((elem) => {
+      if (elem.id === item.id) {
+        elem.stock--;
+      }
+      return elem;
+    });
+    setProducts(() => prodFilter);
   }
 
   async function getProductsData() {

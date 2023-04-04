@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './CartComponent.module.css';
 
 const CartComponent = ({ cartProducts }) => {
   if (!cartProducts.length) {
@@ -6,7 +7,7 @@ const CartComponent = ({ cartProducts }) => {
   }
 
   return (
-    <div data-testid="cart-container">
+    <div data-testid="cart-container" className={style.CartContainer}>
       <table>
         <thead>
           <tr>
