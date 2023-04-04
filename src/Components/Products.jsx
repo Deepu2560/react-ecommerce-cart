@@ -31,7 +31,7 @@ const Products = () => {
   }
 
   async function getProductsData() {
-    let response = await fetch('http://localhost:8080/products');
+    let response = await fetch(`http://localhost:${process.env.REACT_APP_JSON_SERVER_PORT}/products`);
     let data = await response.json();
     setProducts(() => data);
   }
