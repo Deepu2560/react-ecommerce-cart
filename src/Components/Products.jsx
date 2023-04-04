@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ProductCard from './ProductCard';
 import CartComponent from './CartComponent';
+import style from './Products.module.css';
 
 const Products = () => {
   const [products, setProducts] = useState(null);
@@ -26,8 +27,9 @@ const Products = () => {
     let data = await response.json();
     setProducts(() => data);
   }
+
   return (
-    <div>
+    <div className={style.productsContainer}>
       {!products ? (
         <button data-testid="get-btn" onClick={() => getProductsData()}>
           Get Products
