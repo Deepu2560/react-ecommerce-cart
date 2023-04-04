@@ -41,7 +41,7 @@ const Products = () => {
             <h1>Cart</h1>
             <CartComponent cartProducts={cart} />
           </div>
-          <div data-testid="products-container">
+          <div data-testid="products-container" className={style.productMain}>
             {products.map((elem) => {
               return <ProductCard key={elem.id} data={elem} addCart={addToCart} />;
             })}

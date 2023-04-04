@@ -1,3 +1,29 @@
 .productsContainer {
-  border: 10px solid red;
+  text-align: center;
+  margin-top: 1vw;
+}
+
+.productsContainer > button {
+  padding: 1vw 2.5vw;
+  font-size: 20px;
+  background-color: #198754;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.productsContainer > button:hover {
+  background-color: #0d4b2e;
+}
+
+.productMain {
+  width: 95%;
+  margin: auto;
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
 }
